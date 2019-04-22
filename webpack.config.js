@@ -5,7 +5,6 @@ const path = require('path')
 module.exports = {
   entry: {
     index: './src/index.js',
-    // cus_lod: './src/custom-lodash.js'
   },
   output: {
     filename: '[name].bundle.js',
