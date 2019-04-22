@@ -1,9 +1,11 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const path = require('path')
 
 module.exports = {
   entry: {
     index: './src/index.js',
-    cus_lod: './src/custom-lodash.js'
+    // cus_lod: './src/custom-lodash.js'
   },
   output: {
     filename: '[name].bundle.js',
@@ -12,11 +14,16 @@ module.exports = {
   },
   mode: 'development', 
   optimization: {
-    runtimeChunk: 'single'
-  }
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all'
-  //   }
-  // }
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Code splitting'
+    }), 
+    new CleanWebpackPlugin()
+  ]
 }
