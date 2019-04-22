@@ -5,16 +5,15 @@ const path = require('path')
 module.exports = {
   entry: {
     index: './src/index.js',
-    // cus_lod: './src/custom-lodash.js'
+    cus_lod: './src/custom-lodash.js'
   },
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  mode: 'development', 
-  optimization: {
-  },
+  mode: 'development',
+  optimization: {},
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
@@ -23,7 +22,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Code splitting'
-    }), 
+    }),
     new CleanWebpackPlugin()
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 }

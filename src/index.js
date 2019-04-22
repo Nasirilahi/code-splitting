@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import cusLodash from './custom-lodash'
+// import cusLodash from './custom-lodash'
 import { add } from './math'
 
 function component() {
