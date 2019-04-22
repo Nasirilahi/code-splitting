@@ -1,11 +1,15 @@
-import _ from 'lodash'
-import cusLodash from './custom-lodash'
-import { add } from './math'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
-function component() {
-  let element = document.createElement('div')
-  element.innerHTML = _.join(['Hello', 'webpack'])
-  return element
+class DummyContainer extends Component {
+  render() {
+    return (
+      <div> Hello Code splitting... </div>
+    )
+  }
 }
+export default DummyContainer
 
-document.body.appendChild(component())
+const wrapper = document.getElementById("root")
+
+wrapper ? ReactDOM.render(<DummyContainer />, wrapper) : false

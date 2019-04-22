@@ -15,6 +15,17 @@ module.exports = {
   mode: 'development', 
   optimization: {
   },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
+  },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
@@ -22,7 +33,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Code splitting'
+      title: 'Code splitting', 
+      template: "./index.html",
+      filename: "./index.html"
     }), 
     new CleanWebpackPlugin()
   ]
